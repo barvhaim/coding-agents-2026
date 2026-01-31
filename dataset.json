@@ -1,440 +1,236 @@
-[
-  {
-    "name": "GitHub Copilot",
-    "vendor": "GitHub (Microsoft)",
-    "type": "IDE Assistant",
-    "capabilities": "AI pair programmer that suggests code completions, generates functions from comments, and offers chat-based help within IDEs .",
-    "use_cases": "General coding assistance in editors (e.g. completing code, writing tests, explaining code). Speeds up development by handling boilerplate and providing context-aware suggestions.",
-    "autonomy_level": "Low",
-    "integration": "Extensions for VS Code, Visual Studio, JetBrains IDEs, Neovim, etc. Also available in the browser via GitHub and a CLI tool .",
-    "supported_languages": "Trained on dozens of languages; best with Python, JavaScript/TypeScript, Go, Java, C#, C/C++, PHP, Ruby, etc .",
-    "backend_model": "OpenAI GPT (Codex/GPT-4). Uses advanced OpenAI LLMs (GPT-4 and newer) fine-tuned for code. Higher-tier plans access Claude and Gemini models as well.",
-    "pricing": "Paid subscription (Copilot Free for limited use; Pro $10/mo or $100/yr; Pro+ $39/mo for expanded access; Business $19/user/mo; Enterprise $39/user/mo) . Free for certain OSS maintainers and students.",
-    "links": {
-      "website": "https://github.com/features/copilot",
-      "docs": "https://docs.github.com/en/copilot",
-      "pricing": "https://docs.github.com/en/copilot/get-started/plans"
+{
+  "as_of": "2026-02-01",
+  "categories": [
+    "IDE Commercial",
+    "CLI / Terminal",
+    "Hosted Autonomy",
+    "Open Source Framework"
+  ],
+  "tools": [
+    {
+      "name": "GitHub Copilot",
+      "category": "IDE Commercial",
+      "interfaces": ["VS Code", "JetBrains", "Visual Studio", "GitHub.com"],
+      "agent_capabilities": [
+        "Multi-step coding agent",
+        "Repo-aware edits",
+        "Run tests and fix errors",
+        "Issue-to-PR workflows (agent mode)"
+      ],
+      "pricing_usd": [
+        { "plan": "Free", "price_per_month": 0 },
+        { "plan": "Pro", "price_per_month": 10 },
+        { "plan": "Business", "price_per_user_month": 19 },
+        { "plan": "Enterprise", "price_per_user_month": 39 }
+      ],
+      "pricing_source": "Official GitHub Copilot plans",
+      "links": {
+        "pricing": "https://github.com/features/copilot/plans",
+        "docs": "https://docs.github.com/en/copilot/get-started/plans"
+      },
+      "notes": "Copilot now officially includes a coding agent capable of multi-step autonomous tasks, not just autocomplete."
     },
-    "tags": ["IDE Assistant", "Low Autonomy", "OpenAI", "General Purpose"],
-    "ideal_user_profile": "Professional developers seeking in-IDE code completion and suggestions to boost productivity"
-  },
-  {
-    "name": "Amazon CodeWhisperer",
-    "vendor": "Amazon Web Services",
-    "type": "IDE Assistant",
-    "capabilities": "Real-time code suggestions and autocomplete, with built-in security scans and reference tracking for AWS APIs .",
-    "use_cases": "Assists with cloud application development and general coding. Ideal for AWS-related projects (e.g. Lambda functions) due to AWS API knowledge, but works for non-AWS code too .",
-    "autonomy_level": "Low",
-    "integration": "Plugins for IDEs (VS Code, JetBrains via AWS Toolkit, etc.), AWS Cloud9, AWS Lambda console, and Amazon CloudShell. Runs as you type in these environments.",
-    "supported_languages": "Supports 15+ languages: Python, Java, JavaScript, TypeScript, C#, plus Go, Rust, Kotlin, Scala, Ruby, PHP, SQL, C, C++, and Bash scripting.",
-    "backend_model": "Proprietary AWS model (trained on open-source code) analogous to Codey/PaLM-Code. Optimized for code completion and AWS API integration.",
-    "pricing": "Free for individual use. Professional tier at $19/user/month for organizations (usage-based, ~50k lines/mo included). Included as part of Amazon Q Developer (successor platform) for enterprise .",
-    "links": {
-      "website": "https://aws.amazon.com/codewhisperer/",
-      "docs": "https://docs.aws.amazon.com/codewhisperer/latest/userguide",
-      "pricing": "https://aws.amazon.com/codewhisperer/pricing/"
+    {
+      "name": "Cursor",
+      "category": "IDE Commercial",
+      "interfaces": ["Cursor Editor (VS Code-based)"],
+      "agent_capabilities": [
+        "Agent requests",
+        "Multi-file refactors",
+        "Background agents (higher tiers)"
+      ],
+      "pricing_usd": [
+        { "plan": "Hobby", "price_per_month": 0 },
+        { "plan": "Pro", "price_per_month": 20 },
+        { "plan": "Pro+", "price_per_month": 60 },
+        { "plan": "Ultra", "price_per_month": 200 }
+      ],
+      "pricing_source": "Cursor official pricing",
+      "links": {
+        "pricing": "https://cursor.com/pricing"
+      },
+      "notes": "Popular with power users for large refactors and deep repo context."
     },
-    "tags": ["IDE Assistant", "Low Autonomy", "AWS", "Security Scanning"],
-    "ideal_user_profile": "AWS developers or teams needing AI help in coding with an emphasis on security and cloud API usage"
-  },
-  {
-    "name": "Tabnine",
-    "vendor": "Tabnine (Startup)",
-    "type": "IDE Assistant",
-    "capabilities": "AI code completion with local learning. Suggests code as you type, including whole-line and full-function predictions. Offers privacy controls and can be self-hosted for enterprises .",
-    "use_cases": "General coding in various languages with emphasis on privacy (code stays local). Popular for companies needing on-prem or air-gapped AI assistance .",
-    "autonomy_level": "Low",
-    "integration": "Plugins for VS Code, JetBrains, Sublime, Vim, etc. Can run fully on-premises for enterprise. Provides AI chat and code review agents in higher tiers.",
-    "supported_languages": "Supports 80+ languages and frameworks (JavaScript, Python, Java, C/C++, C#, Go, PHP, HTML/CSS, Kotlin, and many more).",
-    "backend_model": "Tabnine’s proprietary models (trained on open-source code). Optionally integrates with OpenAI or other models for improved suggestions in cloud version.",
-    "pricing": "Free basic plan available (Dev Preview). Pro (Dev) at ~$9/user/month for full features. Enterprise at ~$39/user/month with on-prem deployment and advanced controls.",
-    "links": {
-      "website": "https://www.tabnine.com",
-      "docs": "https://docs.tabnine.com/",
-      "pricing": "https://www.tabnine.com/pricing"
+    {
+      "name": "Windsurf",
+      "category": "IDE Commercial",
+      "interfaces": ["Windsurf Editor"],
+      "agent_capabilities": [
+        "Agentic workflows",
+        "Unlimited agent usage (plan dependent)",
+        "Fast repo search (SWE-grep)"
+      ],
+      "pricing_usd": [
+        { "plan": "Pro", "price_per_month": 15 },
+        { "plan": "Teams", "price_per_user_month": 30 },
+        { "plan": "Enterprise", "price": "Contact sales" }
+      ],
+      "pricing_source": "Windsurf official pricing",
+      "links": {
+        "pricing": "https://windsurf.com/pricing"
+      },
+      "notes": "Windsurf is the product formerly known as Codeium."
     },
-    "tags": ["IDE Assistant", "Low Autonomy", "Proprietary Model", "Privacy-Focused"],
-    "ideal_user_profile": "Developers or organizations needing AI code completion with strong privacy (local/on-prem) and multi-language support"
-  },
-  {
-    "name": "Cursor AI Editor",
-    "vendor": "Anysphere (Startup)",
-    "type": "IDE Assistant",
-    "capabilities": "AI-augmented code editor (fork of VS Code) with rich features: inline autocompletion, multi-file generation, “smart rewrite” refactoring, and chat with full codebase context #:~:text=Cursor%20uses%20large%20language%20models,6). It can apply changes via diff and even assist in terminal commands.",
-    "use_cases": "Boosting productivity in a dedicated AI IDE. Good for refactoring large codebases, implementing features from natural language specs, and getting instant codebase-aware help .",
-    "autonomy_level": "Low",
-    "integration": "Standalone cross-platform IDE (forked VS Code) #:~:text=Cursor%20is%20an%20AI,2). Also integrates with Slack (team Q&A bot) and GitHub PRs (AI code review “BugBot”) . Has a CLI agent and web agents as part of its ecosystem .",
-    "supported_languages": "Any language supported by underlying models. Commonly used for Python, JS/TS, Go, Rust, Java, etc., as it indexes the whole project. Offers long-context support (200k+ tokens) for large codebases.",
-    "backend_model": "Multiple LLMs: supports OpenAI GPT-4 (and GPT-5 series), Anthropic Claude 2 (Claude Opus/Sonnet), plus a custom fast model (“cursor-small”). Users can bring their own API keys (OpenAI, Anthropic, Google) .",
-    "pricing": "Proprietary software with subscription tiers: Free Hobby tier available; Pro at $20/mo; Pro+ $60/mo; Ultra $200/mo for higher usage. Teams and Enterprise plans ($40/user/mo and up) offer org features.",
-    "links": {
-      "website": "https://cursor.com",
-      "docs": "https://docs.cursor.com/",
-      "github": "https://github.com/cursorSO",
-      "pricing": "https://cursor.com/pricing"
+    {
+      "name": "Claude Code",
+      "category": "CLI / Terminal",
+      "interfaces": ["Terminal CLI", "VS Code Extension"],
+      "agent_capabilities": [
+        "Repo-aware edits",
+        "Long-running sessions",
+        "Shell command execution (human-approved)"
+      ],
+      "pricing_usd": [
+        { "plan": "Claude Pro", "price_per_month": 20 },
+        { "plan": "Claude Max", "price_per_month": 100 }
+      ],
+      "pricing_source": "Anthropic Claude pricing",
+      "links": {
+        "pricing": "https://claude.com/pricing",
+        "docs": "https://www.anthropic.com/engineering/claude-code-best-practices"
+      },
+      "notes": "Designed as a tool you operate, not a fully delegated teammate."
     },
-    "tags": ["IDE Assistant", "Low Autonomy", "Multi-Model", "Full-IDE"],
-    "ideal_user_profile": "Developers wanting an AI-native IDE for deep codebase integration, multi-file edits, and tight AI assistance in their workflow"
-  },
-  {
-    "name": "Replit Ghostwriter",
-    "vendor": "Replit",
-    "type": "IDE Assistant",
-    "capabilities": "AI coding assistant in Replit’s online IDE. Provides code completion, a conversational help chat, automatic bug detection with suggested fixes, and project generation from prompts .",
-    "use_cases": "Learning and rapid prototyping in the cloud. Great for beginners and hobbyists in Replit, as well as experienced devs collaborating online. Explains code and helps write it in-browser .",
-    "autonomy_level": "Low",
-    "integration": "Integrated into Replit’s browser IDE and mobile app. Also available via Replit’s CLI for local use. Deeply tied to Replit’s environment (packager, filesystem, etc).",
-    "supported_languages": "Supports 50+ languages on Replit (from popular ones like Python, JS/TS, C/C++, Java, to niche ones like Bash, Lua, even Assembly) . Particularly strong with web dev stacks and Python.",
-    "backend_model": "Replit’s own code LLM (Replit Code V models). Optimized for speedy suggestions and tight REPL integration. Continuously improved via feedback; uses OpenAI for some features (e.g. explain code) in older versions, but moving toward proprietary models.",
-    "pricing": "Requires a Replit paid plan. Included in Replit Core ($20/month) which gives full Ghostwriter access. (Historically launched at ~$10/month for Ghostwriter add-on.) Teams and Pro plans include more usage and Agents.",
-    "links": {
-      "website": "https://replit.com/site/ghostwriter",
-      "docs": "https://docs.replit.com/ghostwriter",
-      "pricing": "https://replit.com/pricing"
+    {
+      "name": "Gemini CLI",
+      "category": "CLI / Terminal",
+      "interfaces": ["Terminal CLI", "GitHub Actions"],
+      "agent_capabilities": [
+        "Code generation",
+        "Repo edits",
+        "Search-grounded reasoning"
+      ],
+      "pricing_usd": [
+        {
+          "plan": "Free",
+          "price_per_month": 0,
+          "limits": "60 requests/min, 1,000/day"
+        },
+        {
+          "plan": "Paid (GCP / Vertex)",
+          "price": "Usage-based"
+        }
+      ],
+      "pricing_source": "Google Gemini CLI documentation",
+      "links": {
+        "repo": "https://github.com/google-gemini/gemini-cli",
+        "quotas": "https://developers.google.com/gemini-code-assist/resources/quotas"
+      },
+      "notes": "Strong option for Google Cloud and cost-sensitive workflows."
     },
-    "tags": ["IDE Assistant", "Low Autonomy", "Replit", "Education-Friendly"],
-    "ideal_user_profile": "Users of Replit’s cloud IDE – from students learning to code to developers prototyping apps – who want AI assistance and code generation in an easy, collaborative environment"
-  },
-  {
-    "name": "JetBrains AI Assistant",
-    "vendor": "JetBrains",
-    "type": "IDE Assistant",
-    "capabilities": "AI features built into JetBrains IDEs: context-aware code completion, in-editor chat Q&A, “Explain this code” insights, automated refactoring suggestions, unit test generation, documentation writing, and commit message suggestions.",
-    "use_cases": "Enhancing developer productivity in IntelliJ-based IDEs (Java, Python, JS, etc.) with AI. Helps write and improve code within corporate-approved IDEs, leveraging JetBrains’ robust refactoring tools with AI .",
-    "autonomy_level": "Low",
-    "integration": "Built into JetBrains IDE family (IntelliJ IDEA, PyCharm, WebStorm, Rider, etc) v2023.3+. Requires paid IDE edition. The AI service runs via JetBrains servers or on-prem for Enterprise.",
-    "supported_languages": "Supports all languages covered by JetBrains IDEs (Java, Kotlin,.NET, Python, JS/TS, PHP, C/C++, Go, Rust, etc.). Essentially, if the IDE supports it, the AI can assist in that context.",
-    "backend_model": "JetBrains AI Service (uses multiple LLM providers). Currently a mix of OpenAI GPT-3.5 and GPT-4, plus JetBrains’ own models. Google’s Gemini Code (PaLM 2 Codey) integration is planned; model is chosen automatically by JetBrains cloud.",
-    "pricing": "Requires a paid JetBrains IDE *and* a separate AI Assistant subscription. Priced around $8.33/user/mo for individuals (annual plan ~$100/yr) and ~$16.67/user/mo for organizations . Enterprise pricing available for on-prem deployment.",
-    "links": {
-      "website": "https://www.jetbrains.com/ai/",
-      "docs": "https://www.jetbrains.com/help/idea/ai-assistant.html",
-      "pricing": "https://blog.jetbrains.com/2023/12/07/jetbrains-ai-assistant-pricing/"
+    {
+      "name": "OpenAI Codex",
+      "category": "Hosted Autonomy",
+      "interfaces": ["Web UI", "CLI", "API"],
+      "agent_capabilities": [
+        "Task execution runs",
+        "Code review and edits",
+        "Autonomous task sessions"
+      ],
+      "pricing_usd": [
+        { "plan": "ChatGPT Plus", "price_per_month": 20 },
+        { "plan": "ChatGPT Pro", "price_per_month": 200 }
+      ],
+      "pricing_source": "OpenAI Codex pricing",
+      "links": {
+        "product": "https://openai.com/codex/",
+        "pricing": "https://developers.openai.com/codex/pricing/"
+      },
+      "notes": "Codex is an execution-oriented coding agent, not just a model."
     },
-    "tags": ["IDE Assistant", "Low Autonomy", "OpenAI/JetBrains", "Enterprise-ready"],
-    "ideal_user_profile": "Professional developers in the JetBrains ecosystem who want integrated AI help (and whose companies require self-hosting or specific enterprise controls not offered by cloud-only tools)"
-  },
-  {
-    "name": "GitHub Copilot CLI",
-    "vendor": "GitHub (Microsoft)",
-    "type": "CLI Agent",
-    "capabilities": "Natural language assistant in the terminal. Can translate spoken-language prompts into shell commands, run those commands, debug CLI errors, manage git workflows, and edit files via an interactive CLI chat . Also supports headless scripting mode for automation.",
-    "use_cases": "Streamlining developer workflows outside the IDE. For example, ask it to set up a project environment, find and kill a process by description, generate configuration files, or triage logs—all via conversational prompts in terminal .",
-    "autonomy_level": "Medium",
-    "integration": "Terminal-based (works on Windows, macOS, Linux). Installs via GitHub CLI or package managers. Can interface with the broader GitHub ecosystem (clone repos, open PRs) directly from the terminal. Also integrates with Windows Terminal and GitHub Desktop as a companion.",
-    "supported_languages": "N/A (Not language-specific). It executes shell commands and works with any text-based output. It can assist with code in any language if asked to compile/run tests, but its suggestions are not limited to a programming language.",
-    "backend_model": "Powered by the same OpenAI GPT models behind Copilot (GPT-4/Codex). Leverages GitHub’s multi-model backend; likely uses GPT-4 for complex queries and may incorporate other models for certain CLI tasks.",
-    "pricing": "Included with GitHub Copilot subscription (no extra cost beyond Copilot plans) . Copilot CLI was in public preview in late 2025  and is generally available to Copilot Pro and above users.",
-    "links": {
-      "website": "https://github.blog/2026-01-26-github-copilot-cli/",
-      "docs": "https://docs.github.com/copilot/cli",
-      "github": "https://github.com/github/copilot-cli"
+    {
+      "name": "Devin",
+      "category": "Hosted Autonomy",
+      "interfaces": ["Hosted Workspace"],
+      "agent_capabilities": [
+        "Fully autonomous task execution",
+        "Browser + terminal control",
+        "Multi-day task coordination"
+      ],
+      "pricing_usd": [
+        { "plan": "Teams", "price_per_month": 500 },
+        { "plan": "Pay-as-you-go", "price_starting": 20 }
+      ],
+      "pricing_source": "Cognition Labs + TechCrunch",
+      "links": {
+        "site": "https://cognition.ai",
+        "announcement": "https://cognition.ai/blog/devin-generally-available"
+      },
+      "notes": "Highest autonomy, highest cost; aimed at enterprise delegation."
     },
-    "tags": ["CLI Agent", "Medium Autonomy", "OpenAI", "DevOps"],
-    "ideal_user_profile": "Developers who spend significant time in the terminal and want AI assistance for CLI tasks (running commands, automating dev setup, debugging server scripts) integrated with their coding workflow"
-  },
-  {
-    "name": "Anthropic Claude Code (CLI)",
-    "vendor": "Anthropic",
-    "type": "CLI Agent",
-    "capabilities": "Agentic coding assistant that lives in the terminal. It can analyze entire repositories, plan implementations, edit multiple files, run build/test commands, and even commit code. Claude Code autonomously pulls in context, accesses documentation, and uses tools to turn high-level instructions into working code .",
-    "use_cases": "Executing substantial coding tasks via a single command. E.g., \"Add a feature from spec\" – Claude Code will draft a plan, modify the codebase, run tests, fix bugs, and present a git diff. Ideal for maintenance (bug fixes, refactoring) and feature development with minimal human intervention .",
-    "autonomy_level": "High",
-    "integration": "Primarily a CLI app (`claude` command). Works on macOS, Linux, Windows (WSL/PowerShell) . Also accessible via a web app and desktop app for parallel sessions , and as plugins for VS Code and JetBrains (providing the same agent in-IDE) . Supports Slack integration for team queries.",
-    "supported_languages": "Multi-language (Claude is model-based, not language-specific). Has been effective across Python, Java, JS/TS, Go, etc., even handling large monolithic codebases. It can ingest/modify any text-based language given sufficient context length (Claude 2 can handle 100K+ tokens).",
-    "backend_model": "Anthropic Claude 2 (Claude Instant/Claude Codex variants). Uses Claude’s large context reasoning and tool use via the Model Context Protocol (MCP) . Specialized for code editing; leverages Claude’s strengths in instruction-following and self-refinement. High-end model (Claude-Opus 4.5) used for complex tasks.",
-    "pricing": "Requires a Claude AI subscription: Pro (~$20/mo for individuals) or higher (Max $100/mo for 5x usage). Enterprise plans available for self-hosting. Claude Code CLI is included for subscribers (the compute usage counts against your Claude account limits).",
-    "links": {
-      "website": "https://claude.ai/code",
-      "docs": "https://code.claude.com/docs",
-      "github": "https://github.com/anthropic/claude-code"
+    {
+      "name": "OpenHands",
+      "category": "Open Source Framework",
+      "interfaces": ["Web UI", "Docker runtime"],
+      "agent_capabilities": [
+        "Autonomous coding agents",
+        "Containerized execution",
+        "Model-agnostic"
+      ],
+      "pricing_usd": [
+        { "plan": "Software", "price": "Open-source" }
+      ],
+      "pricing_source": "OpenHands project",
+      "links": {
+        "site": "https://openhands.dev",
+        "repo": "https://github.com/All-Hands-AI/OpenHands"
+      },
+      "notes": "Open-source alternative inspired by Devin; raised Series A in 2025."
     },
-    "tags": ["CLI Agent", "High Autonomy", "Anthropic Claude", "Full-Stack Agent"],
-    "ideal_user_profile": "Engineers who want to delegate sizable coding tasks (bug fixes, implementing features, large refactors) to an AI agent that can operate on their codebase autonomously, either locally or in CI workflows"
-  },
-  {
-    "name": "Google Gemini CLI",
-    "vendor": "Google",
-    "type": "CLI Agent",
-    "capabilities": "Open-source AI agent that brings the Google Gemini model to the terminal. Uses a ReAct loop with tool use (like grep, file read/write, web access) to handle complex coding tasks: fixing bugs, adding features, improving tests, etc., by interacting with the local environment and external info . Also capable of general problem-solving and task automation via CLI.",
-    "use_cases": "Automating development tasks with Google’s LLM. E.g., given a GitHub issue, it can generate a code fix and open a PR. In agent mode, it can serve as a junior developer: understanding requirements, making code changes across files, and verifying through local tools (compilers, test runners). Also useful for data analysis and other terminal-based workflows (it can search web or docs as needed).",
-    "autonomy_level": "High",
-    "integration": "Works in any terminal; pre-installed in Google Cloud Shell. Also integrates with VS Code (Gemini Code Assist agent mode uses Gemini CLI under the hood). Cross-platform support via `geminicli` (open-source CLI on GitHub). Connects with Google Cloud services for extra features (if logged in).",
-    "supported_languages": "Handles a wide variety of programming languages (Gemini is a general LLM). Google has verified high quality support for a set of languages: e.g., Python, JavaScript, Java, Go, C/C++, C#, Kotlin, Dart, Bash, etc . Prompts can be in multiple human languages as well (supports dozens of human languages for queries) .",
-    "backend_model": "Google **Gemini** model (multi-modal next-gen LLM). Uses code-optimized Gemini variants (successor to PaLM 2 Codey) for code tasks. The CLI can call Gemini 2.5 or 3 models via Google’s API. Tool use is managed by Gemini’s reasoning ability with search and code execution tools.",
-    "pricing": "The Gemini CLI is free to use with generous quotas for individuals. Google provides a free tier (Gemini Code Assist for Individuals) that includes a number of CLI agent executions per month. Beyond that or for enterprise use, it ties into Google Cloud’s billing (pay-as-you-go via Vertex AI API or upgrading to Code Assist Standard/Enterprise plans). Essentially, casual use is no-cost, heavy use requires enabling billing (usage-based, rates similar to other LLM APIs).",
-    "links": {
-      "website": "https://developers.google.com/gemini-code-assist/docs/gemini-cli",
-      "github": "https://github.com/google-gemini/gemini-cli",
-      "guide": "https://codelabs.developers.google.com/mastering-gemini-cli"
+    {
+      "name": "SWE-Agent",
+      "category": "Open Source Framework",
+      "interfaces": ["CLI"],
+      "agent_capabilities": [
+        "Issue-to-patch automation",
+        "Benchmark-driven design"
+      ],
+      "pricing_usd": [
+        { "plan": "Software", "price": "Open-source" }
+      ],
+      "pricing_source": "SWE-Agent GitHub",
+      "links": {
+        "repo": "https://github.com/SWE-agent/SWE-agent"
+      },
+      "notes": "Widely used in SWE-bench evaluations."
     },
-    "tags": ["CLI Agent", "High Autonomy", "Google Gemini", "Open Source"],
-    "ideal_user_profile": "Developers who want a powerful open-source coding agent backed by Google’s LLM, suitable for automating coding tasks in the terminal and integrating with cloud workflows (especially those already using Google Cloud or VS Code)"
-  },
-  {
-    "name": "Aider",
-    "vendor": "Open Source (Paul Gauthier et al.)",
-    "type": "CLI Agent",
-    "capabilities": "Chat-based pair programming tool in your terminal. You have a conversation with Aider to modify code in a local git repository. It can edit multiple files, create new files, and directly apply diffs to your codebase. It builds an index/map of your codebase for context , and can run tests or linting automatically to verify changes. Also supports voice commands and image-to-code context.",
-    "use_cases": "Incremental development and refactoring with an AI partner. E.g., ask Aider “Implement feature X” or “Fix this bug,” and it will edit the code and show a git diff for review. Great for handling repetitive edits across a codebase or exploring a codebase with natural language queries. Its auto-test and lint integration suits maintaining code quality while letting the AI make changes .",
-    "autonomy_level": "Medium",
-    "integration": "CLI tool `aider` used within a git project. Edits are done locally and committed with messages automatically. You can also invoke it from editors (e.g., add a special comment and have Aider act on it). It’s scriptable and can be extended with custom tools. Essentially editor-agnostic (works alongside your IDE via git).",
-    "supported_languages": "Over 100 programming languages are supported, since Aider works with any text. It’s commonly used with Python, JavaScript, TypeScript, Rust, Go, Ruby, etc., but also supports config files, markdown, or any text-based format. Its effectiveness depends on the connected LLM’s training (which are generally trained on many languages).",
-    "backend_model": "Model-agnostic. By default you plug in an API key for an LLM of your choice. Works best with Anthropic Claude (e.g., Claude 2 100k context) or GPT-4. Supports OpenAI (GPT-3.5/4), Anthropic, and even local models via compatible APIs. No proprietary model of its own.",
-    "pricing": "Free and open source (Apache-2.0). The only cost is usage of the chosen AI model (e.g., OpenAI API charges or running your own model). No subscription required; you run it on your machine.",
-    "links": {
-      "website": "https://aider.chat",
-      "github": "https://github.com/Aider-AI/aider",
-      "docs": "https://aider.chat/docs/getting-started"
+    {
+      "name": "Cline",
+      "category": "Open Source Framework",
+      "interfaces": ["VS Code Extension"],
+      "agent_capabilities": [
+        "Plan/Act workflow",
+        "Permissioned command execution",
+        "MCP integration"
+      ],
+      "pricing_usd": [
+        { "plan": "Software", "price": "Open-source" }
+      ],
+      "pricing_source": "Cline project",
+      "links": {
+        "repo": "https://github.com/cline/cline",
+        "site": "https://cline.bot"
+      },
+      "notes": "Practical open-source agent with strong human-in-the-loop controls."
     },
-    "tags": ["CLI Agent", "Medium Autonomy", "Open Source", "Git-Integrated"],
-    "ideal_user_profile": "Developers who prefer a conversational AI assistant tightly integrated with their local git repo – especially useful for those who want full control (self-hosted, choice of model) and an AI to help make and verify code changes incrementally"
-  },
-  {
-    "name": "Devin AI",
-    "vendor": "Cognition Labs",
-    "type": "Autonomous Agent",
-    "capabilities": "An AI software engineer agent that can autonomously handle complex coding tasks end-to-end. Given a natural language specification or bug report, Devin will generate a plan, write code across multiple files, run tests or benchmarks, debug errors, search the web for solutions, and iterate until the task is complete . It presents the proposed changes and can create pull requests. Supports multi-agent collaboration (manager agent delegating subtasks) in later versions.",
-    "use_cases": "Large-scale or repetitive development work, such as building a full feature or refactoring a codebase, with minimal human intervention. For example, migrating a legacy system, implementing a new module from scratch, or fixing a series of bugs across a codebase. Enterprises have used Devin to automate code migrations that would take dozens of engineers months to do (e.g. splitting a monolith into microservices) .",
-    "autonomy_level": "High",
-    "integration": "Web-based platform (SaaS). You interact via a web app: provide a repository and instructions, then Devin’s cloud agents work on it . Enterprise integration: can deploy a private instance in VPC or on-prem. Outputs can be reviewed through a web UI (DeepWiki for documentation, etc.) or directly as git diffs/PRs. Some customers integrate Devin into CI pipelines for automatic bug fixing.",
-    "supported_languages": "Supports popular languages like Python, JavaScript, Java, C#, and more – the underlying model is comparable to GPT-4, so it’s generally capable across languages . It can even tackle competitive programming problems and create websites quickly. Strengths noted in web development and general backend code. Officially language-agnostic, but best with the languages with lots of training data.",
-    "backend_model": "Proprietary multimodal LLM developed by Cognition (similar to GPT-4 in scale). Uses a combination of a large language model with extensive fine-tuning on coding tasks and reinforcement learning for planning. Devin also uses toolformer techniques – e.g., web search and executing code – as part of its reasoning. Later versions incorporate multiple specialized sub-agents (planner, coder, tester).",
-    "pricing": "Proprietary SaaS, primarily enterprise-focused. No public free tier. Typically a custom contract based on usage or seats. (E.g., some companies license Devin as “AI interns” on a monthly or annual basis.) Cognition Labs provides a demo by request. In an enterprise case study, ROI was measured by efficiency gains (8-12x faster, 20x cost savings) rather than per-license cost .",
-    "links": {
-      "website": "https://devin.ai",
-      "docs": "https://docs.devin.ai",
-      "blog": "https://cognition.ai/blog/introducing-devin"
-    },
-    "tags": ["Autonomous Agent", "High Autonomy", "Proprietary Model", "Enterprise"],
-    "ideal_user_profile": "Large engineering teams with big codebases and repetitive or large-scale tasks (migrations, extensive bug fixes), looking to leverage a cloud-based AI engineer to increase velocity. (Requires willingness to invest in enterprise AI tooling and oversight of AI-generated changes.)"
-  },
-  {
-    "name": "SWE-Agent",
-    "vendor": "Open Source (Princeton & Stanford researchers)",
-    "type": "Autonomous Agent",
-    "capabilities": "A fully autonomous coding agent that reads software issues (e.g. GitHub issues) and produces code fixes or features as output (in the form of a commit/PR) . SWE-Agent equips an LLM with tool use: it can browse files, edit them, run tests, search for error messages, etc., all without human guidance. It aims to take a natural language task and directly generate the code changes that resolve it, with minimal intervention. Achieves state-of-the-art on the academic SWE-Bench for autonomous bug-fixing .",
-    "use_cases": "Research and experimental use for now – demonstrating how an AI can automatically fix bugs or implement simple feature requests. For example: feed in a description of a bug and the repository, and SWE-Agent will attempt to locate the problem and patch it. It can also scan for security vulnerabilities or solve competitive programming challenges, given the appropriate tool setup. It’s essentially a framework to test fully automated coding in the wild.",
-    "autonomy_level": "High",
-    "integration": "Primarily a Python package/CLI. You configure it with a repo and task (issue description) via a YAML config, then run it; it outputs a diff or directly commits changes . It can be run in “batch mode” on multiple tasks or integrated into CI for automated PR generation on new issues. There’s also a lightweight web interface and an asynchronous “manager-planner-coder” architecture for complex tasks.",
-    "supported_languages": "Targeted mainly at Python and JavaScript initially (since many benchmark tasks are in those languages). However, it’s built to be extensible and has been used on C, C++, and others. New tools can be added for language-specific needs. The underlying LLM (GPT-4 or Claude) has broad language knowledge, but effectiveness is validated on a known set (the SWE-Bench includes Python, JS, Java, C).",
-    "backend_model": "Open – you bring your own model key. Often uses GPT-4 or Claude 2 (Claude 3.7) via API. Researchers also fine-tuned an open 32B model (“SWE-Smith”) for it, reaching good results. The framework is model-agnostic and even has a mini-agent running on smaller models. It relies on the LLM’s reasoning to decide on actions and uses LangChain-style tool invocations for file I/O, compilation, web search, etc.",
-    "pricing": "Free (open-source under MIT). It’s a research project, so you may incur costs for API calls to OpenAI/Anthropic if used. There’s no commercial license fee. The team regularly updates it with research improvements, and a community contributes via GitHub.",
-    "links": {
-      "website": "https://swe-agent.com",
-      "github": "https://github.com/SWE-Agents/SWE-Agent",
-      "paper": "https://arxiv.org/abs/2308.14550"
-    },
-    "tags": ["Autonomous Agent", "High Autonomy", "Open Source", "Research"],
-    "ideal_user_profile": "AI researchers and adventurous developers interested in the cutting edge of autonomous coding. Suitable for experimenting with fully automated bug-fixing or code generation, and for those who want a customizable agent framework to tinker with (rather than a turnkey commercial solution)"
-  },
-  {
-    "name": "GPT-Engineer",
-    "vendor": "Open Source Community (initially Anton Osika)",
-    "type": "Framework",
-    "capabilities": "A CLI tool that generates an entire code project based on a prompt/specification. GPT-Engineer orchestrates a sequence of steps (e.g., requirement clarification, planning, code generation, testing) to produce a full codebase. Developers can customize the pipeline of “AI steps” to refine how it builds software. Typically, you provide a README or prompt describing what to build, and it outputs a structured project (code files, docs).",
-    "use_cases": "Rapid prototyping or scaffolding of apps and APIs. For example, \"Build a Flask web app with a homepage and login\" – GPT-Engineer will create the necessary files (HTML, Python, etc.) implementing that. It’s also used for exploratory purposes: given a high-level idea, quickly see a possible implementation to accelerate development (with the AI doing boilerplate and setup).",
-    "autonomy_level": "Medium",
-    "integration": "Runs as a local CLI; you invoke it with your project description. It creates a new directory with the generated project. You can then open that in your IDE. Because it’s script-based, you can integrate it with other tools or CI (for example, regenerate code from updated spec). It supports multiple LLM backends via API (OpenAI, etc.).",
-    "supported_languages": "Language depends on the request and available templates. Often used for Python (FastAPI/Flask, etc.), JavaScript/TypeScript (Node, React), but it can generate in other languages given proper prompting. There are community-added presets and template projects for various stacks. Essentially, if the underlying model knows the language, GPT-Engineer can produce it. Supports using open-source models like WizardCoder for offline use.",
-    "backend_model": "No fixed model – by default uses OpenAI GPT-4 via API for best results. But it’s compatible with others; users have run it with local LLMs (WizardCoder, CodeLlama) with reduced quality. The pipeline is model-agnostic. The key is the sequential prompt engineering it does to divide the problem (which can be configured in YAML).",
-    "pricing": "Free and open source (MIT license). You only pay for the API calls if using a paid model. Development is community-driven; no paid tiers. (Some third-party cloud services offer GPT-Engineer as a service, but the official project is self-hosted.)",
-    "links": {
-      "github": "https://github.com/AntonOsika/gpt-engineer",
-      "guide": "https://github.com/AntonOsika/gpt-engineer/blob/main/README.md",
-      "video": "https://www.youtube.com/watch?v=qbIk7-JPB2c"
-    },
-    "tags": ["Framework", "Medium Autonomy", "Open Source", "Project Generation"],
-    "ideal_user_profile": "Developers or indie hackers who want to quickly bootstrap a new project or experiment with AI-generated architectures. Also suitable for those who want to customize the software-generation process via open pipelines"
-  },
-  {
-    "name": "Auto-GPT",
-    "vendor": "Open Source (Significant Gravitas & community)",
-    "type": "Framework",
-    "capabilities": "One of the first autonomous AI agent frameworks. It allows an LLM to chain thoughts and actions towards a high-level goal. Auto-GPT comes with a variety of built-in tools (internet search, file I/O, code execution) so the agent can iterate on tasks. When tasked with a coding objective, it can write code, run it to test, and fix errors in a loop. However, it’s a general agent (not solely coding) – it might, for instance, generate a Python script to solve a problem and execute it as part of its reasoning.",
-    "use_cases": "General-purpose automation of tasks that include coding. For example, “research X and build me a simple app to do Y.” Auto-GPT will attempt to gather information and generate the app. It’s often used for experimental purposes (like building a TODO app autonomously) and was a popular demo of multi-step reasoning. In coding specifically, it can scaffold simple projects or scripts, but it may struggle without human guidance on complex codebases. It’s more of a foundation to build specialized agents upon.",
-    "autonomy_level": "High",
-    "integration": "Runs locally (Python program). You give it a goal and it runs until completion or failure, streaming its “thoughts” in the console. Integration is up to the user – some use it within a VS Code terminal, or as part of a pipeline. There are community forks with GUIs, but out-of-the-box it’s CLI-oriented. Requires API keys for OpenAI (and optionally plugins/APIs for extended tools).",
-    "supported_languages": "Not limited by language per se – it will use whatever language is appropriate for the generated code. Often ends up writing Python due to ease of execution and testing. The model’s knowledge covers many languages, but the framework itself doesn’t contain language-specific logic aside from what the LLM knows.",
-    "backend_model": "Defaults to OpenAI GPT-4 or GPT-3.5 via API. It was designed around GPT-4’s capabilities for reasoning. Can be configured to use other models that follow the OpenAI chat API. Some users have tried with local LLMs (via API compatibility layers) but success varies widely. The core is the LLM-driven loop of [Think]->[Act]->[Learn].",
-    "pricing": "Open source (MIT license). No direct cost, but it can consume a lot of API tokens – running an Auto-GPT session with GPT-4 can be expensive if it loops extensively. Users typically control budgets via config. There’s a large community but no official paid version; however, cloud-hosted variants exist (from third parties) for convenience.",
-    "links": {
-      "github": "https://github.com/Significant-Gravitas/Auto-GPT",
-      "docs": "https://significant-gravitas.github.io/Auto-GPT/",
-      "wiki": "https://github.com/Significant-Gravitas/Auto-GPT/wiki"
-    },
-    "tags": ["Framework", "High Autonomy", "Open Source", "General Agent"],
-    "ideal_user_profile": "Experimenters and researchers interested in autonomous agents. It’s a base to explore what an AI might do when given more freedom. Not as out-of-the-box reliable for coding as specialized tools, but a crucial framework that inspired many successors (best for tech-savvy users who can monitor and tweak it)"
-  },
-  {
-    "name": "BabyAGI",
-    "vendor": "Open Source (Yohei Nakajima & community)",
-    "type": "Framework",
-    "capabilities": "A minimalist task-driven agent framework. It keeps a list of tasks, uses an LLM to complete tasks and generate new ones, and continues until the objective is met. BabyAGI itself is not specifically for coding, but if given a coding-related objective, it will create tasks like “write code for X”, “debug code”, etc., and execute them in order using the LLM. It’s essentially a simplified planner + executor loop.",
-    "use_cases": "Educational and research use to understand how an AI can break down goals. For coding, one might use BabyAGI to, say, 'Create a simple website with feature A, B, C'. It will plan sub-tasks and attempt to carry them out. However, it doesn’t come with built-in coding tools beyond what the LLM can do (it may generate code in its mind but the base version doesn’t run or test it without extensions). Often used as a starting point to build more specialized agents.",
-    "autonomy_level": "High",
-    "integration": "Python script that runs the loop. You set an objective and initial task. The integration is manual – developers embed it in their apps or run in a console. Many variants have sprouted, adding integrations like vector databases for memory or executing code with plugins. It’s lightweight and mostly a proof-of-concept; integration with coding requires adding your own tool use (there are forks for running code or searching docs).",
-    "supported_languages": "No specific language support – depends on prompts. If tasked with writing code, it will usually produce Python or JavaScript unless instructed otherwise, because those are common and easy for an LLM. But fundamentally, BabyAGI will try any language or output the user asks for; it’s just orchestrating the LLM.",
-    "backend_model": "Originally used OpenAI GPT-4 or GPT-3.5. Can be configured to use any LLM via API. Given its simplistic approach, it benefits from models that are good at following instructions and generating coherent plans (GPT-4 recommended). People have tried running it with open models like LLaMA 2 via local API – it works but quality suffers unless the model is quite good.",
-    "pricing": "Open source (MIT). No cost except API usage. It’s very lightweight, so running it is cheap, but it might not accomplish complex tasks without a lot of iterations (thus more token usage). There’s no official hosted service; users run it themselves or use one of many community forks/services.",
-    "links": {
-      "github": "https://github.com/yoheinakajima/babyagi",
-      "article": "https://nakajima.dev/posts/introducing-babyagi",
-      "demo": "https://www.youtube.com/watch?v=Opmz_3puxLw"
-    },
-    "tags": ["Framework", "High Autonomy", "Open Source", "Task Planning"],
-    "ideal_user_profile": "Enthusiasts learning about autonomous task management with AI, or developers building their own agent. Not a plug-and-play coding assistant, but a skeleton to test ideas where an AI plans and executes tasks (some coding-related) on its own"
-  },
-  {
-    "name": "SuperAGI",
-    "vendor": "Open Source (TransformerLabs)",
-    "type": "Framework",
-    "capabilities": "A comprehensive platform for building and running autonomous agents with an emphasis on extendability and monitoring. SuperAGI provides a web UI, memory (vector DB) integration, and a plugin system for tools (e.g., code execution, web browsing, APIs). It can manage multiple agents with different roles. For coding scenarios, you can configure an agent that, say, writes code, another that reviews it, etc. Essentially, it’s an “AGI” experimentation platform with more guardrails and interface than bare Auto-GPT.",
-    "use_cases": "Building custom autonomous workflows – including coding pipelines. For example, a company could set up an agent that watches a repo for issues and another that attempts to fix them, using SuperAGI to coordinate and review. It’s used for data analysis, task automation, as well as coding tasks like generating boilerplate code or handling support tickets with code changes. The UI and logging make it easier to supervise compared to raw script agents, which is useful for longer-running or collaborative agent tasks.",
-    "autonomy_level": "High",
-    "integration": "Runs as a web app (with a FastAPI backend). You interact via a dashboard to create agents, assign goals, and track progress. Integration points: it can call external APIs and tools (you can add tools via Python plugins). For coding, it integrates with Git (pulling and pushing code via provided credentials) and can run code on a sandbox server. Deployment is flexible – devs can self-host it on their infrastructure.",
-    "supported_languages": "Language-agnostic for the agent (relies on LLM capabilities). It includes example tools for Python execution, so Python is often the language it writes and tests by default. If targeting a different language, the agent could use a Docker tool or specific compiler tool. SuperAGI’s memory and planning aren’t language-specific. So effectively it supports any language as long as the right tool or runtime is available for that language’s code (the user might need to configure that).",
-    "backend_model": "Can plug into OpenAI (GPT-4/3.5), Anthropic, or local models via API. It abstracts the LLM provider – multiple agents could even use different models. Many use GPT-4 for the main reasoning agent. It also supports model switching depending on task complexity (e.g., use a cheap model for simple tasks, expensive model for critical reasoning).",
-    "pricing": "Free and open source (Apache 2.0). The team offers a hosted cloud version for convenience, which likely has a usage-based pricing or subscription (to cover infrastructure and API calls), but the core project is free to deploy. The cost mainly comes from the LLM API usage and any cloud resources if self-hosting (vector database, etc.).",
-    "links": {
-      "website": "https://superagi.com",
-      "github": "https://github.com/TransformerLabs/SuperAGI",
-      "docs": "https://docs.superagi.com"
-    },
-    "tags": ["Framework", "High Autonomy", "Open Source", "Multi-Agent"],
-    "ideal_user_profile": "Developers or researchers who want a full-featured infrastructure to experiment with autonomous agents (including coding agents) in a controllable way. Good for setting up custom agent workflows in a team or project, with a UI to observe and tweak the agents’ behavior"
-  },
-  {
-    "name": "MetaGPT",
-    "vendor": "Open Source (DeepWisdom/Geely foundation and contributors)",
-    "type": "Framework",
-    "capabilities": "A multi-agent collaboration framework that imitates a software startup team. It assigns different roles to multiple GPT-based agents – e.g., Product Manager (clarifies requirements), Architect (designs system), Engineer (writes code), QA (tests). The agents communicate and coordinate to produce a software product from a prompt specification. MetaGPT encodes procedural knowledge (like how a PM and Engineer should interact). The end result is typically a codebase along with documentation, diagrams, etc., reflecting the work of this virtual team.",
-    "use_cases": "Generating more complex or well-architected projects from scratch by leveraging specialized AI 'roles'. For instance, given an idea for a web app, the PM agent will define specs, the Architect agent will outline the design, Engineer agents will implement modules, etc. This can yield a more structured and modular code output than a single-shot agent. It’s useful for exploring how an AI might handle larger projects with multiple components (front-end, back-end, etc.) and for learning good software engineering practices (since the roles follow some best-practice prompts).",
-    "autonomy_level": "Medium",
-    "integration": "It’s a Python framework – you run a MetaGPT script with your prompt and it spins up the agents. They produce outputs in files (code, markdown design docs, etc.). You can also interact by inspecting intermediate outputs (since each role agent’s output can be logged). It’s not a service; more of a library/CLI. The project provides example prompts and configurations for various scenarios. Developers can integrate MetaGPT as a component in larger pipelines (for instance, as a step in a product design pipeline, outputting a draft implementation).",
-    "supported_languages": "Primarily targets the software development process in general. By default, the Engineer agent will likely produce Python (the examples often show Python code) because it’s versatile and well-known to LLMs. But the framework itself doesn’t hardcode language – if the Architect decides on a tech stack or the user specifies one (say, “use Java and Spring Boot for backend”), the agents should follow that. The quality in different languages depends on the LLM’s proficiency. MetaGPT role prompts currently align well with building web apps and APIs.",
-    "backend_model": "Typically uses OpenAI GPT-4 for all agents (quality matters since multiple agents mean compounding errors if they misunderstand). It can use other LLMs if they support the required context and reliability, but GPT-4 is recommended. Some variants might allow different models per role, but in practice most use the same model for each agent instance. There’s ongoing research; for example, using smaller specialized models for certain roles (not widely implemented yet).",
-    "pricing": "Open source (Apache 2.0). No cost except LLM API calls. Running a full multi-agent session with GPT-4 can be expensive (since multiple agents each make calls). No official paid offering; it’s a community-driven project often used in academic contexts. Interested users need an OpenAI API key (or similar) and will incur usage charges accordingly.",
-    "links": {
-      "github": "https://github.com/geekan/MetaGPT",
-      "docs": "https://docs.deepwisdom.ai/metagpt",
-      "paper": "https://arxiv.org/abs/2308.00352"
-    },
-    "tags": ["Framework", "Medium Autonomy", "Open Source", "Multi-Agent Collaboration"],
-    "ideal_user_profile": "AI enthusiasts and researchers curious about multi-agent cooperation for software development. It’s suitable for those who want a structured, role-playing approach to AI-generated software (producing not just code, but design docs and a rationale). Not yet a plug-and-play solution for production code, but a fascinating glimpse at AI teamwork in coding"
-  },
-  {
-    "name": "OpenAI Codex",
-    "vendor": "OpenAI",
-    "type": "Foundation Model",
-    "capabilities": "A foundational code generation model (based on GPT-3) that can turn natural language into code and complete code given context. Codex could produce functions or even simple programs from descriptions. It powers many code assistants by providing the “brain” that predicts the next lines of code.",
-    "use_cases": "API-driven integration for IDE autocompletion and chatbots. For example, GitHub Copilot’s early version was built on Codex. It’s adept at filling in boilerplate, writing code snippets in many languages, and answering programming questions by generating code. Also used for non-IDE scenarios like converting pseudocode to actual code, or generating SQL queries from English.",
-    "autonomy_level": "Low",
-    "integration": "Accessible via OpenAI API (completion endpoint). Often used in editors through extensions or in bots (like a Discord bot that writes code). As a model, it doesn’t have a user interface on its own; it’s integrated into other tools. OpenAI has deprecated the original Codex API in favor of more general models , so now Codex’s legacy lives on in newer GPT models fine-tuned for code.",
-    "supported_languages": "Proficient in over a dozen languages that were in its training data – including Python, JavaScript, TypeScript, Ruby, Go, PHP, C, C++, C#, Java, SQL, and shell scripting . It can often handle others as well (it even understands HTML/CSS, JSON, etc.). Best performance is in Python and JavaScript where it had lots of examples.",
-    "backend_model": "OpenAI Codex (most notably the 2021 model based on GPT-3.5 series). Variants include code-cushman and code-davinci. As of 2023, OpenAI transitioned users to `gpt-3.5-turbo` and `gpt-4` for coding, which incorporate Codex improvements. So Codex as a standalone model is legacy, but it laid the groundwork for GPT-4’s coding abilities.",
-    "pricing": "Was available as a paid API (e.g., ~$0.10 per 1K tokens for code-davinci-002). Discontinued for direct use in late 2023. Now, access is via the ChatGPT/GPT-4 API pricing. In effect, there isn’t a distinct Codex billing anymore; one uses GPT-3.5/4 pricing. GitHub Copilot subscribers indirectly pay for Codex/GPT usage through the subscription.",
-    "links": {
-      "website": "https://openai.com/blog/openai-codex",
-      "docs": "https://platform.openai.com/docs/models/codex",
-      "news": "https://openai.com/blog/gpt-3-5-turbo-instruct"
-    },
-    "tags": ["Model", "Low Autonomy", "OpenAI", "Code Generation"],
-    "ideal_user_profile": "Developers and companies needing a powerful code generation model to integrate into their own applications or IDEs. (Codex itself is now rolled into GPT-4, so the ideal profile now would use GPT-4, but historically this was the go-to model for coding AI in 2021–2022.)"
-  },
-  {
-    "name": "OpenAI GPT-4 (Code Capabilities)",
-    "vendor": "OpenAI",
-    "type": "Foundation Model",
-    "capabilities": "A state-of-the-art general LLM with excellent coding abilities. GPT-4 can understand complex programming problems, generate multi-file code solutions, debug code, and explain code. It handles long contexts (~25K tokens in 2026) which means it can consider entire projects. It’s the model behind many advanced assistants (Copilot chat, ChatGPT’s Code Interpreter, etc.). It not only writes code but also reasons about it deeply, often finding logical bugs or suggesting better approaches.",
-    "use_cases": "Virtually every coding task: from writing a small function to architecting a whole module. In practice used in tools like Copilot X (chat), Replit Ghostwriter, and internal dev at companies. Developers use GPT-4 via ChatGPT or API to get code snippets, have it refactor or review code, generate tests, or even act as a rubber-duck debugger. Its strong reasoning makes it suited for algorithmic challenges and edge cases that earlier models struggled with.",
-    "autonomy_level": "Low",
-    "integration": "Via OpenAI’s Chat Completion API or ChatGPT interface. It’s typically a backend for IDE plugins (the JetBrains assistant uses GPT-4, Copilot uses a variant of GPT-4, etc.). Also can be used directly through ChatGPT Plus (which many devs do to get help). Because it’s a model, integration covers any environment – CLI tools, editor, continuous integration pipelines – by calling the API with appropriate prompts.",
-    "supported_languages": "Extremely broad. GPT-4 was trained on a huge corpus including code from many languages, so it can generate and understand virtually any popular programming language (Python, JavaScript, Java, C#, C/C++, Go, Rust, Ruby, Swift, PHP, etc.). It also does markup (HTML, LaTeX) and queries (SQL) and even some esoteric or older languages if given enough description. Essentially, if it can be found in public repos or documentation, GPT-4 has some knowledge of it.",
-    "backend_model": "OpenAI GPT-4 (2023).  Available via various variants (the default 8k context version, a 32k context version for long inputs, and evolving improvements like GPT-4.1, GPT-4.2 as hinted in plan tables ). For coding, no separate fine-tune needed – GPT-4’s base training included coding. Many “code assistants” use GPT-4 under the hood, possibly with some instruction fine-tuning or system prompts. As of early 2026, GPT-4 remains one of the top models for coding, with GPT-5 on the horizon in limited release.",
-    "pricing": "Via API: ~$0.03 per 1K tokens (input) and $0.06 per 1K (output) for 8k context; higher for 32k context (about 2–3×) – making it relatively expensive but powerful. Through ChatGPT Plus subscription ($20/mo) developers get a UI with GPT-4 (limited daily messages). Many IDE integrations cover the cost in their subscription. Essentially, it’s a paid service, though some community projects run smaller versions fine-tuned on code (not matching full GPT-4 performance).",
-    "links": {
-      "website": "https://openai.com/product/gpt-4",
-      "docs": "https://platform.openai.com/docs/models/gpt-4",
-      "eval": "https://openai.com/research/gpt-4"
-    },
-    "tags": ["Model", "Low Autonomy", "OpenAI", "Advanced"],
-    "ideal_user_profile": "Any developer or organization that needs the strongest AI assistance in coding. This is the go-to model for complex coding queries integrated into tools or used directly, as long as the cost is justified"
-  },
-  {
-    "name": "Anthropic Claude 2 (Code-focused)",
-    "vendor": "Anthropic",
-    "type": "Foundation Model",
-    "capabilities": "A large language model known for its lengthy context (up to 100k tokens) and friendly, helpful style. Claude 2 is very good at coding tasks: generating functions, analyzing and fixing code, and handling multi-file reasoning thanks to the huge context window. It’s slightly more restrained than GPT-4 in style, but very capable in writing correct, well-documented code. It also integrates an “agentic” ability when allowed (as seen in Claude Code) to use tools, but at the model level, it’s a conversational AI that excels at software queries and writing.",
-    "use_cases": "Similar to GPT-4: in IDEs or chatbots to assist developers. It’s particularly useful when you need to feed a lot of code or documentation in the prompt – e.g., asking it to refactor a 10k-line project or find a bug across multiple files (something Claude can handle in one go due to context length). Many devs use Claude via Claude.ai or Slack for Q&A about their code. It also performs strongly in writing documentation or explaining code in simple terms (useful for onboarding).",
-    "autonomy_level": "Low",
-    "integration": "Available via API (Claude v2) and through interfaces like the Claude web beta. Often integrated in enterprise tools – for instance, Slack bots, or internal code assistants – because of its emphasis on harmlessness and its data privacy promises. The Claude Code CLI and IDE plugins essentially wrap this model. So integration points: CLI agent, IDE extension (Anthropic doesn’t have an official IDE plugin aside from CLI, but third parties do). Or directly calling the API in your own apps.",
-    "supported_languages": "Supports coding in Python, JavaScript/TypeScript, Java, C/C++, C#, Go, Rust, Ruby, HTML/CSS, SQL, and more – basically all major languages. It was trained on a large swath of GitHub, so it has broad knowledge. Anecdotally, Claude is slightly stronger in writing clean Python and pseudocode-style explanations. The extended context means it can hold an entire codebase in mind, which is a unique advantage for languages with many interdependent files (like large Java projects).",
-    "backend_model": "Anthropic Claude 2. Anthropically it’s positioned as an alternative to GPT-4. There are variants (Claude Instant, which is faster/cheaper but slightly less capable, and Claude 2 'Opus' which is the full version). Claude’s training emphasizes constitutional AI (harmlessness), and it’s very good at following high-level instructions. In Claude Code scenarios, the same model is harnessed with special prompting for agent behavior.",
-    "pricing": "API pricing for Claude 2 is usage-based (by tokens). As of late 2025: ~$1.63 per million input tokens, $5.51 per million output tokens for Claude Instant; higher for Claude 2 (roughly 10x Instant’s price for the full model). Anthropic also offers subscription tiers: Claude Pro $20/mo (with ~5× the free usage of Claude.ai) , Claude Max $100/mo for power users. Claude.ai web usage has a free tier with limitations. For enterprise, custom pricing (they often bundle Claude with Slack or other tools).",
-    "links": {
-      "website": "https://www.anthropic.com/index/claude-2",
-      "docs": "https://console.anthropic.com/docs/api",
-      "compare": "https://www.anthropic.com/index/claude-vs-chatgpt-for-coding"
-    },
-    "tags": ["Model", "Low Autonomy", "Anthropic", "Long Context"],
-    "ideal_user_profile": "Developers who need to work with very large code contexts or who prefer an alternative to OpenAI models. Claude 2 is ideal for tasks like codebase-wide refactoring suggestions, thorough code reviews, or answering questions about a large set of docs/code fed into it at once"
-  },
-  {
-    "name": "Google Gemini (Code model)",
-    "vendor": "Google",
-    "type": "Foundation Model",
-    "capabilities": "Google’s flagship next-gen AI (successor to PaLM 2) with strong coding prowess. Gemini has multiple sizes; the larger variants (Gemini Pro/Ultra) excel at complex problem solving and code generation. It’s designed to be multimodal eventually, but in code tasks it behaves similarly to GPT-4: generating code, interpreting error messages, writing tests. Early benchmarks show it performing on par or better than GPT-4 in many coding challenges. It also integrates deeply with Google’s ecosystem, enabling features like generating entire Android apps from a prompt (via Studio Bot) or assisting in Google Cloud’s tools.",
-    "use_cases": "Used via **Google Bard (with code assist)** and **Gemini Code Assist** in products. Ideal for developers already in Google’s dev environment: e.g., coding in Android Studio (Studio Bot is powered by a Gemini model), using Google Cloud Shell or Cloud Workstations with the AI helper, or in VS Code/JetBrains through the Google Code Assist plugin. It’s also accessible in Google’s ChatGPT-like interface (Bard) where it can produce and explain code. So use cases span from asking “Hey Bard, write a function for X” to having it auto-complete code in an IDE, to more ambitious agentic tasks via Gemini CLI.",
-    "autonomy_level": "Low",
-    "integration": "Primarily via Google’s services: Bard (web UI), Android Studio’s AI features, Google Cloud’s IDE plugins, and the Gemini CLI/agent mode for terminals . The model is available on Google Cloud Vertex AI for API access (Enterprise). Third-party integration is less common outside the Google ecosystem, as Google has not released open weights. Essentially, if you’re using a Google product with AI, Gemini might be the model under the hood as of 2026. Developers can call it through Vertex AI API (requires a Google Cloud project and probably whitelisting during preview).",
-    "supported_languages": "Gemini’s training includes a vast amount of code (it’s built on Google’s analyses of GitHub, etc., similar to PaLM 2 which was strong in Python/JS/Java). It supports all major programming languages. Google specifically validated quality on languages like Python, JavaScript, C++, Go, Java, Kotlin, etc., which are common in their user base . It’s also integrated into domain-specific cases (like Google Sheets formulas or Apps Script generation via Bard). It can likely handle about as broad a range as GPT-4. One noted strength: it might generate code that aligns well with Google style guides (based on its training and reinforcement).",
-    "backend_model": "Google **Gemini** (likely referencing Gemini “Ultra” for the top capability). There are presumably tiers: e.g., Gemini Nano, Gemini Pro, etc., with different token limits and speeds. The code-focused aspects were formerly “Codey” in PaLM 2; with Gemini, those are integrated. It uses Google’s TPUs for serving. One interesting aspect: Gemini can use tools (like Google search) in the context of Code Assist, which means part of its deployment includes an agent loop (though the raw model itself is just an LLM that might have been trained with some tool-use knowledge).",
-    "pricing": "Access via Google Cloud is usage-based (Vertex AI pricing per 1K tokens, comparable to or slightly lower than OpenAI’s). As of early 2026, Google might offer free trials for Bard and limited individual use (Bard is free with some daily limits for code generation). For enterprise Code Assist: there’s likely a licensing cost per user (similar to Microsoft’s $30/user for 365 Copilot, Google might bundle AI into Google Workspace or Cloud offerings). The Gemini CLI for individuals is free within generous limits , encouraging developers to try it without cost.",
-    "links": {
-      "website": "https://developers.google.com/gemini",
-      "bard": "https://bard.google.com",
-      "cloud": "https://cloud.google.com/vertex-ai/docs/generative-ai/overview"
-    },
-    "tags": ["Model", "Low Autonomy", "Google", "New Release"],
-    "ideal_user_profile": "Developers who are using Google’s ecosystem for development or want the latest model competitor to GPT-4. Ideal for those who might already rely on Google’s AI (Bard, Studio Bot) and want a powerful coding assistant integrated with their tools. Also, companies already on Google Cloud might prefer Gemini via Vertex AI for data governance reasons"
-  },
-  {
-    "name": "Meta Code Llama",
-    "vendor": "Meta (Facebook)",
-    "type": "Foundation Model",
-    "capabilities": "An open-source LLM specialized for coding, based on the Llama-2 architecture. Code Llama can generate code and natural language about code, and comes in variants including a Python-specialized model. It supports fill-in-the-middle for code completion use. While not as powerful as GPT-4, it’s one of the best freely available code models (able to produce correct solutions for many programming tasks and debug given code).",
-    "use_cases": "Local or private coding assistance where using closed APIs is undesirable. Developers integrate Code Llama into IDE extensions (experimental VSCode plugins exist) to get on-prem code completion and chat. It’s used in research as a baseline and by companies that require an internal model for IP reasons. Typical uses: autocompletion, generating simple scripts, or use in Jupyter notebooks to suggest code. The Python variant is particularly good for data science snippets.",
-    "autonomy_level": "Low",
-    "integration": "Requires running the model on suitable hardware (GPUs). Many use cases involve loading Code Llama in a library like HuggingFace Transformers and querying it for completions. It can be fine-tuned or quantized to run on smaller GPUs. There are community forks (like Code Llama in text-generation-webui, or as part of local-LLM coding bots). In summary, integration is DIY – it’s a model, not a service. Tools like AWS SageMaker JumpStart host it, and some cloud providers offer it as an endpoint.",
-    "supported_languages": "Trained on many languages with a focus on Python, JavaScript, Java, PHP, C++, C, C#, Bash, etc. (Meta’s paper listed 20+ languages). Python was given extra training (there’s a 34B Python model). It can output other languages too but might be less fluent in something like Rust or Go compared to Python/JS. Still, as a model it doesn’t fundamentally exclude any language – it’s about proficiency levels which are high for popular ones.",
-    "backend_model": "Meta **Code Llama** (2023) – available in 7B, 13B, 34B parameter sizes, each with a Python-tuned version and a code completion optimized version. License is community-friendly (Meta license allowing commercial use with attribution). It’s essentially Llama-2 with an additional pass on code data. Some users further fine-tune it (e.g., Code Llama - Instruct for better chat). It’s static (doesn’t improve unless you fine-tune) and requires provisioning appropriate compute.",
-    "pricing": "Free to use. If you run it locally, cost is just your hardware/electricity. If using a cloud VM, you pay for that (no charge for the model itself). It being open source means no token fees. However, running the 34B model with good speed might require a beefy GPU (which can cost ~$1-2/hour in cloud). Smaller 7B/13B run on consumer GPUs with less cost but also less capability. Many businesses find this attractive as a one-time or fixed cost alternative to paying API usage continually.",
-    "links": {
-      "website": "https://ai.facebook.com/blog/code-llama-large-language-model-coding/",
-      "github": "https://github.com/facebookresearch/CodeLlama",
-      "paper": "https://arxiv.org/abs/2308.12950"
-    },
-    "tags": ["Model", "Low Autonomy", "Open Source", "Local Model"],
-    "ideal_user_profile": "Organizations or developers who need a code-capable AI model on-premises or want to avoid API costs/licensing issues. Also hobbyists who enjoy running AI models locally. Good for moderate coding tasks and as a base for custom fine-tunes"
-  },
-  {
-    "name": "Hugging Face StarCoder",
-    "vendor": "BigCode (Hugging Face & ServiceNow Research)",
-    "type": "Foundation Model",
-    "capabilities": "An open large language model specifically trained on source code (over 80+ programming languages, from a 2023 snapshot of public GitHub). StarCoder (15B parameters) can produce code, complete code with an understanding of structure, and was trained with an opt-in policy to include only permissively licensed code. It knows docstrings and can provide helpful comments. There’s also StarCoderBase (pre-fine-tuning) and StarCoder-Plus variants with extended context length (up to 16k tokens) for reading larger files.",
-    "use_cases": "Similar domain as Code Llama: local coding assistants, especially where open licensing is important. It has been used in Jupyter notebooks (a VS Code extension for StarCoder exists). It’s quite good at completing code from a prompt or acting as a chatbot about coding. And because of the license filtering, it’s a model companies might adopt if concerned about IP (it was trained on code that allowed training usage). It’s also multilingual (supports code comments in multiple human languages).",
-    "autonomy_level": "Low",
-    "integration": "Provided via HuggingFace Transformers – easy to load if you have the hardware (fits on a single high-end GPU, or two consumer GPUs with 8-bit quantization). Many community projects incorporate StarCoder as the AI engine for code assistants. Hugging Face has an Inference API and hosted model you can query (with rate limits for free, or as paid). So integration can be as simple as using the HF API endpoint, or running it in an app via libraries. ServiceNow released an “Code Assistant” reference application using StarCoder as well.",
-    "supported_languages": "Trained on over 80 languages. Strong in Python (a lot of training data), JavaScript, Java, TypeScript, Go, C++, C, Rust, Ruby, and also configuration languages (JSON, YAML) and markup (HTML, Markdown). Even less common languages like COBOL or Verilog might be present (though not deeply). It also has some ability with APIs/libraries because of training on their usage in code. Given the breadth, it’s one of the most versatile open models in terms of language coverage , but performance will be best on the most represented languages (Python, JS, Java, etc.).",
-    "backend_model": "StarCoder 15B (2023). It’s an evolution of the earlier CodeParrot/GPT-J models. Trained with 1T tokens of code. There’s a variant called **StarCoderBase** (the raw model) and **StarCoder** (fine-tuned with instructions on code tasks, like a conversational coding assistant). Also, a 7B model was released (WizardCoder, which is a fine-tune of Code Llama, not directly StarCoder, but often mentioned alongside as open code models). The BigCode project ensured the dataset is legally clean (only Apache, MIT, etc. licensed code). Context window is 8k by default, extended to 16k in StarCoderPlus.",
-    "pricing": "Free (open Apache 2.0 license). If using Hugging Face’s hosted Inference API, they have pricing (e.g., included free quota, then paid for higher throughput). But running it yourself has no licensing cost. Compute to run: ~16 GB GPU RAM needed for full 15B model (half that with 8-bit quantization). So one can even run on a gaming PC’s GPU. For many, that cost is trivial compared to API fees for similar usage.",
-    "links": {
-      "website": "https://huggingface.co/blog/starcoder",
-      "model_card": "https://huggingface.co/BigCode/StarCoder",
-      "demo": "https://huggingface.co/spaces/bigcode/StarCoder"
-    },
-    "tags": ["Model", "Low Autonomy", "Open Source", "Community Trained"],
-    "ideal_user_profile": "Similar to Code Llama’s audience: those who want a capable coding model they can run or fine-tune themselves. Also developers who prioritize license cleanliness of training data. StarCoder is great for building custom coding assistants without legal concerns and for integration into dev tools where an open model is preferred"
-  }
-]
+    {
+      "name": "Aider",
+      "category": "CLI / Terminal",
+      "interfaces": ["Terminal CLI"],
+      "agent_capabilities": [
+        "Git-based code edits",
+        "Patch/diff workflow",
+        "Multi-model support"
+      ],
+      "pricing_usd": [
+        { "plan": "Software", "price": "Open-source" }
+      ],
+      "pricing_source": "Aider documentation",
+      "links": {
+        "repo": "https://github.com/Aider-AI/aider",
+        "docs": "https://aider.chat/docs/"
+      },
+      "notes": "Popular with Git-first and local-model workflows (Ollama, etc.)."
+    }
+  ]
+}
