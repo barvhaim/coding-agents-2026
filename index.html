@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive dashboard of AI Coding Agents and Tools for 2026 - Compare features, pricing, and capabilities">
+    <meta name="keywords" content="AI coding agents, GitHub Copilot, Claude Code, Devin AI, coding assistants, AI tools">
+    <title>AI Coding Agents Dashboard 2026</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="header-title">
+                    <span class="emoji">🤖</span>
+                    AI Coding Agents 2026
+                </h1>
+                <p class="header-subtitle">
+                    Comprehensive comparison of AI-powered coding assistants, agents, and frameworks
+                </p>
+            </div>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="total-agents">20</span>
+                    <span class="stat-label">Tools</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="filtered-count">20</span>
+                    <span class="stat-label">Showing</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Controls -->
+    <section class="controls">
+        <div class="container">
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    class="search-input" 
+                    placeholder="🔍 Search by name, vendor, capabilities..."
+                    aria-label="Search agents"
+                >
+            </div>
+
+            <!-- Filters -->
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="type-filter" class="filter-label">Type:</label>
+                    <select id="type-filter" class="filter-select">
+                        <option value="all">All Types</option>
+                        <option value="IDE Assistant">IDE Assistant</option>
+                        <option value="CLI Agent">CLI Agent</option>
+                        <option value="Autonomous Agent">Autonomous Agent</option>
+                        <option value="Framework">Framework</option>
+                        <option value="Foundation Model">Foundation Model</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="autonomy-filter" class="filter-label">Autonomy:</label>
+                    <select id="autonomy-filter" class="filter-select">
+                        <option value="all">All Levels</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="sort-select" class="filter-label">Sort by:</label>
+                    <select id="sort-select" class="filter-select">
+                        <option value="name">Name (A-Z)</option>
+                        <option value="name-desc">Name (Z-A)</option>
+                        <option value="autonomy">Autonomy Level</option>
+                        <option value="type">Type</option>
+                    </select>
+                </div>
+
+                <button id="reset-filters" class="btn-reset" aria-label="Reset all filters">
+                    Reset Filters
+                </button>
+            </div>
+
+            <!-- View Toggle -->
+            <div class="view-toggle">
+                <button id="grid-view" class="view-btn active" aria-label="Grid view">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <rect x="2" y="2" width="7" height="7" rx="1"/>
+                        <rect x="11" y="2" width="7" height="7" rx="1"/>
+                        <rect x="2" y="11" width="7" height="7" rx="1"/>
+                        <rect x="11" y="11" width="7" height="7" rx="1"/>
+                    </svg>
+                </button>
+                <button id="list-view" class="view-btn" aria-label="List view">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <rect x="2" y="3" width="16" height="2" rx="1"/>
+                        <rect x="2" y="9" width="16" height="2" rx="1"/>
+                        <rect x="2" y="15" width="16" height="2" rx="1"/>
+                    </svg>
+                </button>
+                <button id="compare-view" class="view-btn" aria-label="Compare view">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <rect x="2" y="2" width="6" height="16" rx="1"/>
+                        <rect x="10" y="2" width="6" height="16" rx="1"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tag Filter Pills -->
+    <section class="tag-filters">
+        <div class="container">
+            <div id="tag-pills" class="tag-pills"></div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Loading State -->
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Loading AI Coding Agents...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error" class="error-state" style="display: none;">
+                <p>⚠️ Failed to load data. Please refresh the page.</p>
+            </div>
+
+            <!-- No Results -->
+            <div id="no-results" class="no-results" style="display: none;">
+                <p>🔍 No agents found matching your criteria.</p>
+                <button id="clear-search" class="btn-primary">Clear Search</button>
+            </div>
+
+            <!-- Agents Grid -->
+            <div id="agents-grid" class="agents-grid"></div>
+
+            <!-- Comparison View -->
+            <div id="comparison-view" class="comparison-view" style="display: none;">
+                <div class="comparison-header">
+                    <h2>Compare Agents</h2>
+                    <p>Select up to 3 agents to compare side by side</p>
+                </div>
+                <div id="comparison-content" class="comparison-content"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>
+                    <strong>AI Coding Agents Dashboard 2026</strong> - 
+                    A comprehensive comparison of AI-powered development tools
+                </p>
+                <p class="footer-note">
+                    Data compiled from official documentation, research papers, and vendor websites. 
+                    Last updated: January 2026
+                </p>
+                <div class="footer-links">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                        View on GitHub
+                    </a>
+                    <span class="separator">•</span>
+                    <a href="#" id="about-link">About</a>
+                    <span class="separator">•</span>
+                    <a href="#" id="contribute-link">Contribute</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
