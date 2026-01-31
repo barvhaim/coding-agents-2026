@@ -397,15 +397,18 @@ function getPricingLabel(pricing) {
     if (!pricing) return 'N/A';
     
     const pricingLower = pricing.toLowerCase();
+    
+    // Check for truly free options
     if (pricingLower.includes('free') && pricingLower.includes('open source')) {
         return '🆓 Free & Open Source';
-    } else if (pricingLower.includes('free')) {
-        return '🆓 Free';
-    } else if (pricingLower.includes('$0')) {
+    } else if (pricingLower.match(/^free/i) || pricingLower.includes('no cost') || pricingLower.includes('$0')) {
         return '🆓 Free';
     } else if (pricingLower.match(/\$\d+/)) {
+        // Extract the lowest price mentioned
         const match = pricing.match(/\$\d+/);
         return `💰 From ${match[0]}`;
+    } else if (pricingLower.includes('paid') || pricingLower.includes('subscription')) {
+        return '💰 Paid';
     } else {
         return '💰 Paid';
     }
